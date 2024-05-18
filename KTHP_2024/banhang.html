@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trang Web Bán Hàng</title>
+    <link rel="stylesheet" href="./banhang.css" />
+  </head>
+  <body>
+    <header class="fixed-header">
+      <div class="container">
+        <h1>LUYEN SNEAKERS</h1>
+        <div class="user-actions">
+          <a href="#">Trang chủ</a>
+          <a href="#">Sản phẩm</a>
+          <a href="#">Liên hệ</a>
+          <a href="#" onclick="showLoginForm()">Đăng nhập</a>
+          <a href="#" id="cartButton" onclick="showCartModal()">Giỏ hàng (0)</a>
+        </div>
+      </div>
+      <button onclick="changeBackgroundColor()">Thay đổi màu</button>
+    </header>
+
+    <div id="chonsanpham">
+      <label for="productType">Chọn loại sản phẩm:</label>
+      <select id="productType" name="productType">
+        <option value="all">Hiển thị tất cả</option>
+        <option value="giay1">Giày Sneaker</option>
+        <option value="giay2">Adidas</option>
+        <option value="giay3">Chuck Taylor All Star Cruise</option>
+        <option value="giay4">Run Star Legacy CX</option>
+        <option value="giay5">Chuck 70 Plus</option>
+        <!-- Thêm các option khác cho loại sản phẩm -->
+      </select>
+    </div>
+
+    <main id="productList">
+      <section class="product">
+        <img src="./image/giay1.jpg" alt="Product 1" />
+        <h2>Giày sneaker</h2>
+        <p>12.000.000 VND</p>
+        <button onclick="addToCart(this.parentElement)">
+          Thêm vào giỏ hàng
+        </button>
+
+        <!-- Nút thêm vào giỏ hàng -->
+        <button onclick="openOrderForm('Giày sneaker', '12.000.000 VND')">
+          Đặt hàng
+        </button>
+        <!-- Nút đặt hàng -->
+      </section>
+      <section class="product">
+        <img src="./image/giay2.jpg" alt="Product 2" />
+        <h2>Adidas</h2>
+        <p>30.000.000 VND</p>
+        <button onclick="addToCart(this.parentElement)">
+          Thêm vào giỏ hàng
+        </button>
+
+        <!-- Nút thêm vào giỏ hàng -->
+        <button onclick="openOrderForm('Adidas', '30.000.000 VND')">
+          Đặt hàng
+        </button>
+        <!-- Nút đặt hàng -->
+      </section>
+      <section class="product">
+        <img src="./image/giay3.jpg" alt="Product 2" />
+        <h2>Chuck Taylor All Star Cruise</h2>
+        <p>30.000.000 VND</p>
+        <button onclick="addToCart(this.parentElement)">
+          Thêm vào giỏ hàng
+        </button>
+
+        <!-- Nút thêm vào giỏ hàng -->
+        <button
+          onclick="openOrderForm('Chuck Taylor All Star Cruise', '12.000.000 VND')"
+        >
+          Đặt hàng
+        </button>
+        <!-- Nút đặt hàng -->
+      </section>
+      <section class="product">
+        <img src="./image/giay4.jpg" alt="Product 2" />
+        <h2>Run Star Legacy CX</h2>
+        <p>30.000.000 VND</p>
+        <button onclick="addToCart(this.parentElement)">
+          Thêm vào giỏ hàng
+        </button>
+
+        <!-- Nút thêm vào giỏ hàng -->
+        <button onclick="openOrderForm('Run Star Legacy CX', '12.000.000 VND')">
+          Đặt hàng
+        </button>
+        <!-- Nút đặt hàng -->
+      </section>
+      <section class="product">
+        <img src="./image/giay5.jpg" alt="Product 2" />
+        <h2>Chuck 70 Plus</h2>
+        <p>30.000.000 VND</p>
+        <button onclick="addToCart(this.parentElement)">
+          Thêm vào giỏ hàng
+        </button>
+
+        <!-- Nút thêm vào giỏ hàng -->
+        <button onclick="openOrderForm('Chuck 70 Plus', '12.000.000 VND')">
+          Đặt hàng
+        </button>
+        <!-- Nút đặt hàng -->
+      </section>
+      <!-- Add more product sections as needed -->
+    </main>
+
+    <div class="login-form" id="loginForm">
+      <form>
+        <p>Đăng nhập</p>
+        <input type="text" placeholder="Username" />
+        <input type="password" placeholder="Password" />
+        <button class="dangnhap" type="submit">Đăng nhập</button>
+        <button class="dangky" type="submit">Đăng ký</button>
+      </form>
+    </div>
+    <!-- HTML -->
+    <div id="orderModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeOrderForm()">&times;</span>
+        <h2>Thông tin người đặt hàng</h2>
+        <form id="orderForm" onsubmit="submitForm(event)">
+          <label for="fullName">Họ và tên:</label>
+          <input type="text" id="fullName" name="fullName" required />
+          <label for="address">Địa chỉ:</label>
+          <input type="text" id="address" name="address" required />
+          <label for="phone">SDT:</label>
+          <input type="text" id="phone" name="phone" required />
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required />
+          <p id="orderDetails"></p>
+          <button type="submit">Gửi</button>
+        </form>
+      </div>
+    </div>
+
+    <footer class="pt-5 pb-4" id="contact">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3 col-md-6 col-sm-6 mt-2 mb-4">
+            <h5 class="mb-4 font-weight-bold">ABOUT US</h5>
+            <ul class="f-address">
+              <li>
+                <div class="row">
+                  <div class="col-1"><i class="fas fa-map-marker"></i></div>
+                  <div class="col-10">
+                    <h6 class="font-weight-bold mb-0">Address:</h6>
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    </p>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="row">
+                  <div class="col-1"><i class="far fa-envelope"></i></div>
+                  <div class="col-10">
+                    <h6 class="font-weight-bold mb-0">Have any questions?</h6>
+                    <p><a href="#">Support@userthemes.com</a></p>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="row">
+                  <div class="col-1"><i class="fas fa-phone-volume"></i></div>
+                  <div class="col-10">
+                    <h6 class="font-weight-bold mb-0">Address:</h6>
+                    <p><a href="#">+84 (0) 0949954510</a></p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-6 mt-2 mb-4">
+            <h5 class="mb-4 font-weight-bold">FRESH TWEETS</h5>
+            <ul class="f-address">
+              <li>
+                <div class="row">
+                  <div class="col-1"><i class="fab fa-twitter"></i></div>
+                  <div class="col-10">
+                    <p class="mb-0">
+                      <a href="#">@userthemesrel </a> HTML Version Out Now
+                    </p>
+                    <label>10 Mins Ago</label>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="row">
+                  <div class="col-1"><i class="fab fa-twitter"></i></div>
+                  <div class="col-10">
+                    <p class="mb-0">
+                      <a href="#">@userthemesrel </a> HTML Version Out Now
+                    </p>
+                    <label>10 Mins Ago</label>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="row">
+                  <div class="col-1"><i class="fab fa-twitter"></i></div>
+                  <div class="col-10">
+                    <p class="mb-0">
+                      <a href="#">@userthemesrel </a> HTML Version Out Now
+                    </p>
+                    <label>10 Mins Ago</label>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-6 mt-2 mb-4">
+            <h5 class="mb-4 font-weight-bold">LATEST UPDATES</h5>
+            <ul class="recent-post">
+              <li>
+                <label class="mr-3">28 <br /><span>APR</span></label>
+                <span>Rendomised words which dont look eveable.</span>
+              </li>
+              <li>
+                <label class="mr-3">29 <br /><span>APR</span></label>
+                <span>Rendomised words which dont look eveable.</span>
+              </li>
+              <li>
+                <label class="mr-3">30 <br /><span>APR</span></label>
+                <span>Rendomised words which dont look eveable.</span>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-6 mt-2 mb-4">
+            <h5 class="mb-4 font-weight-bold">CONNECT WITH US</h5>
+            <div class="input-group">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Your Email Address"
+              />
+              <span class="input-group-addon" id="basic-addon2"
+                ><i class="fas fa-check"></i
+              ></span>
+            </div>
+            <ul class="social-pet mt-4">
+              <li>
+                <a href="#" title="facebook"
+                  ><i class="fab fa-facebook-f"></i
+                ></a>
+              </li>
+              <li>
+                <a href="#" title="twitter"><i class="fab fa-twitter"></i></a>
+              </li>
+              <li>
+                <a href="#" title="google-plus"
+                  ><i class="fab fa-google-plus-g"></i
+                ></a>
+              </li>
+              <li>
+                <a href="#" title="instagram"
+                  ><i class="fab fa-instagram"></i
+                ></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <div id="cartModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeCartModal()">&times;</span>
+        <h2>Giỏ hàng</h2>
+        <table id="cartItemList">
+          <thead>
+            <tr>
+              <th>STT</th>
+              <th>Ảnh</th>
+              <th>Tên</th>
+              <th>Giá</th>
+              <th>Hành động</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+        <button onclick="closeCartModal()">Đóng</button>
+      </div>
+    </div>
+    <script src="./banghang.js"></script>
+    <script>
+      function changeBackgroundColor() {
+        const colors = ["#cdcba3", "#33FF57", "#3357FF", "#F333FF", "#33FFF7"];
+        const randomColor = colors[Math.floor(Math.random() * colors.length)];
+        document.body.style.backgroundColor = randomColor;
+      }
+    </script>
+  </body>
+</html>

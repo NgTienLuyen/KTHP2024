@@ -1,0 +1,480 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #c2b7b7; /* Thay đổi màu nền của trang */
+}
+
+header,
+main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px; /* Thêm padding cho main để tạo khoảng cách với header và footer */
+}
+
+.product {
+  width: 300px;
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  text-align: center;
+  background-color: #fff; /* Thay đổi màu nền của sản phẩm */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Thêm shadow để tạo hiệu ứng nổi bật */
+  transition: transform 0.3s ease; /* Thêm transition cho hiệu ứng hover */
+}
+
+.product img {
+  width: 100%;
+  height: auto;
+}
+
+.product:hover {
+  transform: translateY(-5px); /* Hiệu ứng nhấp nháy khi hover */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Thêm shadow lớn hơn khi hover */
+}
+/* CSS cho phần header */
+header {
+  background-color: #80766f;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+  justify-content: space-between; /* Dịch phần tử vào mép phải và trái */
+  align-items: center; /* Căn giữa theo chiều dọc */
+  padding: 0 20px; /* Tăng khoảng cách giữa phần tử và mép header */
+}
+.fixed-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #a08585; /* Màu nền của header */
+  color: #fff; /* Màu chữ của header */
+  padding: 2px 10px; /* Khoảng cách lề của header */
+  z-index: 1000; /* Đảm bảo header hiển thị trên tất cả các phần khác */
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user-actions a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 20px;
+}
+
+.user-actions a:hover {
+  text-decoration: underline;
+}
+
+/* CSS cho form đăng nhập */
+.login-form {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  border: 2px solid #ccc;
+  text-align: center; /* Căn giữa các phần tử bên trong */
+}
+
+.login-form input,
+.login-form button {
+  width: 95%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+}
+
+.dangnhap {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+.dangky {
+  background-color: #7adb97;
+  color: #a59999;
+  border: none;
+  cursor: pointer;
+}
+
+.login-form button:hover {
+  background-color: #555;
+}
+
+/* Tạo khoảng cách giữa các input và nút đăng nhập */
+.login-form input:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+/* Nút thêm vào giỏ hàng */
+.product button {
+  background-color: #676b67;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.product button:hover {
+  background-color: #73d8cb;
+}
+
+/* Nút đặt hàng */
+.product .order-button {
+  background-color: #008cba;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.product .order-button:hover {
+  background-color: #007aa7;
+}
+
+/* Khi di chuột vào sản phẩm */
+.product:hover {
+  transform: translateY(-5px); /* Hiệu ứng di chuyển lên trên */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Hiệu ứng bóng đổ */
+}
+
+/* Thay đổi màu nền khi di chuột vào sản phẩm */
+.product:hover {
+  background-color: #d0b0b0; /* Màu nền thay đổi */
+  transition: background-color 0.3s; /* Thêm hiệu ứng chuyển đổi màu nền trong 0.3 giây */
+}
+
+/* CSS cho modal giỏ hàng */
+#cartModal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #f8f9fa;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  animation-name: zoom;
+  animation-duration: 0.3s;
+}
+
+@keyframes zoom {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+}
+
+/*CSS CHO PHẦN NÚT THAY ĐỔI MÀU*/
+button {
+  background-color: #535853; /* Màu nền */
+  border: none; /* Xóa viền */
+  color: white; /* Màu chữ */
+  padding: 15px 32px; /* Đệm bên trong */
+  text-align: center; /* Canh giữa văn bản */
+  text-decoration: none; /* Xóa gạch chân */
+  display: inline-block; /* Hiển thị dưới dạng khối nội tuyến */
+  font-size: 16px; /* Kích thước chữ */
+  margin: 20px 20px; /* Khoảng cách bên ngoài */
+  cursor: pointer; /* Con trỏ khi di chuột vào */
+  border-radius: 8px; /* Bo tròn các góc */
+  transition: background-color 0.3s, transform 0.3s; /* Thêm hiệu ứng chuyển đổi */
+}
+
+button:hover {
+  background-color: #61a8c2; /* Màu nền khi hover */
+  transform: scale(1.05); /* Phóng to khi hover */
+}
+
+button:active {
+  background-color: #55a9b8; /* Màu nền khi nhấn */
+  transform: scale(0.98); /* Thu nhỏ khi nhấn */
+  box-shadow: 0 5px #666; /* Thêm đổ bóng khi nhấn */
+  transform: translateY(4px); /* Dịch chuyển xuống khi nhấn */
+}
+
+/* CSS cho phần chọn loại sản phẩm */
+
+#chonsanpham {
+  margin-top: 100px; /* Khoảng cách phía trên */
+  margin-left: 20px; /* Khoảng cách phía trái */
+}
+label[for="productType"] {
+  font-size: 18px;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+select#productType {
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 6px;
+  background-color: #fff;
+  transition: border-color 0.3s, box-shadow 0.3s; /* Thêm hiệu ứng chuyển đổi */
+}
+
+select#productType:focus {
+  border-color: #73d8cb;
+  box-shadow: 0 0 5px rgba(115, 216, 203, 0.5); /* Thêm shadow khi focus */
+}
+
+select#productType option {
+  padding: 10px;
+  font-size: 16px;
+}
+
+/* Tạo một khung bao quanh */
+select#productType {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Thêm shadow để tạo hiệu ứng nổi bật */
+}
+
+/* Khi di chuột vào select box */
+select#productType:hover {
+  border-color: #73d8cb; /* Thay đổi màu viền khi hover */
+}
+
+/* Thêm hiệu ứng cho các option */
+select#productType option:hover {
+  background-color: #f1f1f1; /* Thay đổi màu nền khi hover vào option */
+}
+
+/*============================ [Footer] ============================*/
+footer {
+  color: #fff;
+  background-attachment: fixed;
+  background-color: #968383;
+  /* background-image: url(https://s7.postimg.org/uyf0oioaz/footer-bg.png); */
+  background-size: cover;
+  background-position: bottom;
+}
+footer p {
+  color: #ccc;
+}
+footer a {
+  color: #ccc;
+}
+.social-pet li {
+  display: inline-block;
+  margin-right: 10px;
+}
+.social-pet li a {
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  text-align: center;
+  display: block;
+  line-height: 35px;
+  background-color: #3a5a95;
+  color: #fff;
+}
+.social-pet li:nth-child(2) a {
+  background-color: #57aced;
+}
+.social-pet li:nth-child(3) a {
+  background-color: #dd4f43;
+}
+.social-pet li:nth-child(4) a {
+  background-color: #6b27b2;
+}
+.social-pet li a:hover {
+  background-color: #0141a2;
+}
+.social-pet li a:hover i {
+  transform: rotate(360deg);
+  -moz-transform: rotate(360deg);
+  -webkit-transform: rotate(360deg);
+}
+.recent-post li {
+  display: block;
+  color: #ccc;
+  margin-bottom: 25px;
+}
+.recent-post li label {
+  float: left;
+  border: 2px solid #ccc;
+  padding: 1px 7px;
+  text-align: center;
+}
+.recent-post li label span {
+  color: #fff;
+}
+footer .input-group-addon {
+  background-color: #0141a2;
+  padding: 7px;
+}
+.f-address li {
+  display: inline-block;
+}
+.f-address li i {
+  color: #2995de;
+  font-size: 18px;
+}
+.f-address li a {
+  color: #ccc;
+}
+/*=-Copyright-=*/
+.copyright {
+  background-color: #111;
+  padding: 12px 0;
+  font-size: 14px;
+}
+.row {
+  display: flex; /* Sử dụng flexbox */
+  justify-content: space-between; /* Canh các phần tử theo chiều ngang, với khoảng cách đều nhau giữa chúng */
+  align-items: center; /* Canh các phần tử theo chiều dọc */
+}
+
+/* CSS */
+
+.col-lg-3 {
+  flex: 1; /* Chia đều không gian cho các cột */
+}
+
+.col-lg-3 h5 {
+  font-size: 20px; /* Kích thước phù hợp cho các tiêu đề lớn */
+  font-weight: bold; /* Đậm */
+  color: #fff; /* Màu trắng */
+  text-align: center; /* Căn giữa các tiêu đề */
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+table,
+th,
+td {
+  border: 1px solid #ddd;
+}
+
+th,
+td {
+  padding: 12px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+img.product-image {
+  width: 100px;
+  height: auto;
+}
+
+/* CSS cho modal */
+.modal {
+  display: none; /* Ẩn modal theo mặc định */
+  position: fixed; /* Đặt modal cố định */
+  z-index: 1; /* Đảm bảo modal nằm trên tất cả các phần tử khác */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto; /* Cho phép cuộn nếu nội dung quá dài */
+  background-color: rgb(0, 0, 0); /* Màu nền đen với độ trong suốt */
+  background-color: rgba(0, 0, 0, 0.4); /* Độ trong suốt */
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% từ trên và dưới và căn giữa */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Chiều rộng của modal */
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
