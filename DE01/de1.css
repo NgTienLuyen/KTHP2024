@@ -1,0 +1,308 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  background-image: url(./img/imgSchool.jpg);
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+}
+
+.banner {
+  width: 100%;
+  height: 150px;
+  display: flex;
+  border-bottom: 2px solid #788186;
+  background: linear-gradient(to right, #8edee7, rgba(27, 145, 214, 0.604));
+}
+
+.banner .logo {
+  width: 200px;
+  height: 100px;
+  margin: 20px 40px 20px 60px;
+}
+
+.banner .logo img {
+  width: 100%;
+}
+
+.banner .text {
+  width: 700px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  font-size: 44px;
+  font-weight: bold;
+  color: #28292a;
+  opacity: 0;
+
+  /* animation: slide-in 1s ease forwards; */
+}
+
+.nav {
+  background-color: #008fd5;
+  width: 100%;
+}
+
+.nav ul {
+  display: flex;
+  justify-content: space-around;
+  list-style-type: none;
+  flex-wrap: wrap;
+  /* border-top: 2px solid; */
+}
+
+.nav ul li {
+  margin: 20px;
+}
+
+.nav ul a {
+  font-size: 25px;
+  text-decoration: none;
+  color: white;
+  position: relative;
+}
+
+.nav ul a::before {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background-color: white;
+  transition: width 0.3s ease;
+}
+
+.nav ul a:hover::before {
+  width: 100%;
+}
+
+.main {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+.login {
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.922
+  ); /* Màu trắng trong suốt với độ trong suốt là 0.8 */
+  width: 480px;
+  height: 400px;
+  margin: 50px auto;
+  padding-left: 30px;
+  padding-top: 50px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(189, 180, 180, 0.3);
+}
+
+.login p {
+  font-size: 30px;
+  text-align: center;
+}
+
+.login .input-box {
+  width: 100%;
+  height: 50px;
+  /* background-color: wheat; */
+  margin: 20px 0;
+}
+
+.login .input-box input {
+  width: 94%;
+  height: 100%;
+  background-color: transparent;
+  border-radius: 8px;
+}
+
+.login .input-box input:last-child {
+  font-size: 18px;
+  background: linear-gradient(
+    120deg,
+    rgba(103, 207, 234, 0.144),
+    rgba(7, 147, 240, 0.341)
+  );
+  cursor: pointer;
+}
+.login .input-box input::placeholder {
+  font-size: 15px;
+}
+
+.login .input-box input[type="text"],
+.login .input-box input[type="password"] {
+  font-size: 15px;
+  padding: 10px;
+}
+
+.login .input-box i {
+  font-size: 20px;
+  position: relative;
+  left: -40px;
+}
+
+.login .role {
+  width: 40%;
+  font-size: 20px;
+}
+
+.login .role select {
+  font-size: 15px;
+}
+
+.login {
+  display: none;
+}
+
+.footer {
+  width: 100%;
+  height: 100px;
+  background-color: #008fd5;
+  display: flex;
+  position: fixed;
+  bottom: 0;
+}
+
+.footer .social-btns {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer .title {
+  font-size: 22px;
+  color: #cfcccc;
+}
+
+.footer .icon {
+  width: 70%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.footer .icon a {
+  font-size: 30px;
+  margin: 10px;
+  transition: 0.3s ease;
+}
+
+.footer .icon a:hover {
+  background: radial-gradient(
+    circle at 30% 107%,
+    #fdf497 0%,
+    #fdf497 5%,
+    #fd5949 45%,
+    #d6249f 60%,
+    #0a727b 90%
+  );
+  -webkit-background-clip: text;
+  /* Also define standard property for compatibility */
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.footer .contact {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #f2f2f2;
+}
+
+.footer .info {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  margin: 18px;
+  /* flex-wrap: wrap; */
+  align-items: center;
+  font-size: 15px;
+  transition: 0.3s ease;
+  color: #f2f2f2;
+}
+
+@media (max-width: 768px) {
+  .banner {
+    height: 220px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .banner .text {
+    font-size: 30px;
+    margin-bottom: 30px;
+  }
+
+  .footer .icon a {
+    font-size: 20px;
+  }
+
+  .footer .info {
+    font-size: 12px;
+    margin: 10px;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer {
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+    justify-content: center;
+    align-items: center;
+  }
+  .footer .contact {
+    width: 100%;
+    display: block;
+    text-align: center;
+  }
+
+  .footer .info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 0px;
+  }
+
+  .footer .info i {
+    margin: 5px;
+    font-size: 13px;
+  }
+}
+
+@keyframes slide-border {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes slide-in {
+  0% {
+    width: 0%;
+    opacity: 0;
+  }
+  100% {
+    width: 50%;
+    opacity: 1;
+  }
+}

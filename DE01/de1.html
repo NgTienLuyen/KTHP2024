@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trường ĐH CMC</title>
+    <link rel="stylesheet" href="de1.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      size="16x16"
+      href="./img/V2---CMCUNIVERSITY-logo5-png.png"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="banner">
+        <div class="logo">
+          <img
+            src="https://cdn.haitrieu.com/wp-content/uploads/2022/12/Artboard-5.png"
+            alt=""
+          />
+        </div>
+        <div class="text" id="bannerText">TRƯỜNG ĐẠI HỌC CMC</div>
+      </div>
+      <div class="nav">
+        <ul>
+          <li><a href="#">Trang chủ</a></li>
+          <li><a href="./de1view.html">Xem thông tin</a></li>
+          <li><a href="#">Quản lí học viên</a></li>
+          <li><a href="./de1_Dashboard.html">Dashboard</a></li>
+          <li><a href="#">Giới thiệu</a></li>
+          <li><a href="#" onclick="showLoginForm()">Đăng nhập</a></li>
+        </ul>
+      </div>
+      <div class="main">
+        <div class="login" id="loginForm">
+          <form action="">
+            <p>Đăng nhập</p>
+            <div class="input-box">
+              <input
+                type="text"
+                id="username"
+                placeholder="Username"
+                required
+                autofocus
+              />
+              <i class="fa-solid fa-envelope"></i>
+            </div>
+            <div class="input-box">
+              <input
+                type="password"
+                id="password"
+                placeholder="Password"
+                required
+              />
+              <i class="fa-solid fa-lock"></i>
+            </div>
+            <div class="role">
+              Role:
+              <select name="role" id="role">
+                <option value="user">User</option>
+                <option value="admin">Admin</option>
+              </select>
+            </div>
+            <div class="input-box">
+              <input
+                type="submit"
+                id="loginButton"
+                value="Login"
+                onclick="event.preventDefault(); okLogin()"
+                disabled
+              />
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="footer">
+        <div class="social-btns">
+          <p class="title">Follow Us</p>
+          <div class="icon">
+            <a href="#"><i class="bx bxl-facebook-circle"></i></a>
+            <a href="#"><i class="bx bxl-instagram"></i></a>
+            <a href="#"><i class="bx bxl-youtube"></i></a>
+            <a href="#"><i class="bx bxl-twitter"></i></a>
+          </div>
+        </div>
+
+        <div class="contact">
+          <p class="title">Contact with us</p>
+          <div class="info">
+            <i class="fa-solid fa-location-dot"> Ha Dong - Hanoi </i>
+            <i class="fa-solid fa-envelope"> info@truongto.com </i>
+            <i class="fa-solid fa-phone"> 0366 239 433 </i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="de1.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.4/dist/boxicons.js"
+      integrity="sha512-kWH92pHUC/rcjpSMu19lT+H6TlZwZCAftg9AuSw+AVYSdEKSlXXB8o6g12mg5f+Pj5xO40A7ju2ot/VdodCthw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/ionicons/7.2.2/esm/ionicons.min.js"
+      integrity="sha512-WsL2r6j6Im3HvCp3uuExL45LhU4qwsS4HgVHgti+k/9zXNQnLqiunaxwNxDl+NsLHryCUyGPBw2IV7mGe1Z7nQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </body>
+</html>

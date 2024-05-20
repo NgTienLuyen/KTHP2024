@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - Trường ĐH CMC</title>
+    <!-- Add any necessary CSS links for styling -->
+    <style>
+      /* Reset CSS */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      nav ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      nav ul li {
+        display: inline;
+        margin-right: 20px;
+      }
+
+      nav ul li a {
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
+        transition: color 0.3s ease;
+      }
+
+      nav ul li a:hover {
+        color: #007bff;
+      }
+
+      .dashboard {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .dashboard h1 {
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
+
+      .dashboard form {
+        margin-bottom: 20px;
+      }
+
+      .dashboard label {
+        font-weight: bold;
+      }
+
+      .dashboard input[type="number"] {
+        width: 100px;
+        padding: 8px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
+
+      .dashboard button {
+        padding: 8px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .dashboard button:hover {
+        background-color: #0056b3;
+      }
+
+      #chartContainer {
+        /* Styles for chart container */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Navigation bar -->
+      <nav>
+        <ul>
+          <li><a href="./de1.html">Trang chủ</a></li>
+          <li><a href="./de1view.html">Xem thông tin</a></li>
+          <li><a href="#">Quản lí học viên</a></li>
+          <li><a href="#">Dashboard</a></li>
+          <li><a href="#">Giới thiệu</a></li>
+          <li><a href="#" onclick="showLoginForm()">Đăng nhập</a></li>
+        </ul>
+      </nav>
+
+      <!-- Dashboard content -->
+      <div class="dashboard">
+        <h1>Dashboard</h1>
+        <form id="chartForm">
+          <label for="startYear">Năm nhập học:</label>
+          <input
+            type="number"
+            id="startYear"
+            name="startYear"
+            min="2000"
+            max="2024"
+            required
+          />
+          <button type="submit">Hiển thị biểu đồ</button>
+        </form>
+        <div id="chartContainer">
+          <!-- Biểu đồ sẽ được vẽ ở đây -->
+          <canvas id="myChart"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add any necessary JavaScript scripts for interactivity and chart rendering -->
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="de1_Dashboard.js"></script>
+</html>
